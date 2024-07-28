@@ -39,6 +39,7 @@ function App() {
     if (!dateRegex.test(date)) {
       setResult('Please enter a valid date in the format yyyy-mm-dd');
       setError(true);
+      setDate(''); // Clear the input field
       return;
     }
 
@@ -47,6 +48,7 @@ function App() {
     if (month < 1 || month > 12 || day < 1 || day > 31) {
       setResult('Please enter a valid date');
       setError(true);
+      setDate(''); // Clear the input field
       return;
     }
 
@@ -54,6 +56,7 @@ function App() {
     if (dateObj.getFullYear() !== year || dateObj.getMonth() + 1 !== month || dateObj.getDate() !== day) {
       setResult('Please enter a valid date');
       setError(true);
+      setDate(''); // Clear the input field
       return;
     }
 
@@ -63,6 +66,7 @@ function App() {
 
     setResult(`${date} in Roman numerals is ${romanYear}-${romanMonth}-${romanDay}`);
     setError(false);
+    setDate(''); // Clear the input field
   };
 
   const handleKeyPress = (e) => {
